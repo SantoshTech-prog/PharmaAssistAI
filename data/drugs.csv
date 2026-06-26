@@ -1,0 +1,6 @@
+DrugName,DrugNumber,Covered,PriorAuthorization
+Ozempic,D1001,Yes,Yes
+Metformin,D1002,Yes,No
+Jardiance,D1003,Yes,Yes
+Insulin,D1004,Yes,No
+ExperimentalDrug,D1005,No,No
