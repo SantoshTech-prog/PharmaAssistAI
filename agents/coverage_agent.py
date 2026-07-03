@@ -3,6 +3,10 @@ from pathlib import Path
 
 
 def check_coverage(drug_name):
+    """
+    Checks whether the requested drug is covered
+    and whether Prior Authorization is required.
+    """
 
     base_dir = Path(__file__).resolve().parent.parent
     data_file = base_dir / "data" / "drugs.csv"
@@ -13,13 +17,13 @@ def check_coverage(drug_name):
 
         for row in reader:
 
-            if row["DrugName"].lower() == drug_name.lower():
+            if row["DrugName"].strip().lower() == drug_name.strip().lower():
 
-                covered = row["Covered"]
-                pa_required = row["PriorAuthorization"]
+                covered = row["Covered"].strip().lower() == "yes"
+                pa_required = row["PriorAuthorization"].strip().lower() == "yes"
 
-                if covered == "Yes":
-                    if pa_required == "Yes":
+                if covered:
+                    if pa_required:
                         reason = "Covered with Prior Authorization"
                     else:
                         reason = "Covered"
@@ -36,12 +40,14 @@ def check_coverage(drug_name):
 
     return {
         "drug_name": drug_name,
-        "covered": "No",
-        "prior_authorization": "No",
+        "covered": False,
+        "prior_authorization": False,
         "coverage_reason": "Drug not found"
     }
 
 
 if __name__ == "__main__":
+
     result = check_coverage("Ozempic")
+
     print(result)

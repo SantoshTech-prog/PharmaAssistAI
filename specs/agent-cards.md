@@ -386,3 +386,183 @@ Low
 
 The Evaluation Agent only assesses quality and does not perform business actions.
 
+
+
+\## Orchestrator Agent
+
+
+
+\### Purpose
+
+
+
+Coordinate the pharmacy benefits verification workflow by determining which specialized agents should execute based on the user's request and the results returned by previous agents.
+
+
+
+\---
+
+
+
+\### Inputs
+
+
+
+\- Member ID
+
+\- Date of Service
+
+\- Drug Name
+
+
+
+\---
+
+
+
+\### Outputs
+
+
+
+\- Combined workflow response
+
+\- Workflow status
+
+\- Recommendation
+
+
+
+\---
+
+
+
+\### Permissions
+
+
+
+\- Invoke specialized agents
+
+\- Read structured responses
+
+\- Stop workflow when required
+
+
+
+\---
+
+
+
+\### Not Allowed To
+
+
+
+\- Make eligibility decisions
+
+\- Determine coverage
+
+\- Change business data
+
+\- Modify recommendations
+
+
+
+\---
+
+
+
+\### Risk Level
+
+
+
+Medium
+
+
+
+\## Explanation Agent
+
+
+
+\## Purpose
+
+
+
+Generate a natural language explanation for the business decision returned by the Orchestrator.
+
+
+
+\---
+
+
+
+\### Inputs
+
+
+
+\- Eligibility Result
+
+\- Coverage Result
+
+\- Recommendation
+
+\- Coverage Reason
+
+
+
+\---
+
+
+
+\### Outputs
+
+
+
+\- Human-readable explanation
+
+
+
+\---
+
+
+
+\### Permissions
+
+
+
+\- Read structured response from the Orchestrator
+
+\- Call the Gemini API
+
+
+
+\---
+
+
+
+\### Not Allowed To
+
+
+
+\- Change eligibility
+
+\- Change coverage
+
+\- Change recommendation
+
+\- Modify business data
+
+
+
+\---
+
+
+
+\### Risk Level
+
+
+
+Low
+
+
+
+
+
