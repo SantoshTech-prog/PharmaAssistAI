@@ -564,5 +564,57 @@ Low
 
 
 
+\## Evaluation Agent
 
+
+
+\###Purpose
+
+Evaluate whether the AI-generated explanation is consistent with the structured business decision before presenting it to the user.
+
+
+
+\###Inputs
+
+\- Structured Decision
+
+\- AI-generated Explanation
+
+
+
+\###Outputs
+
+\- Passed (True/False)
+
+\- Score (0–100)
+
+\- Issues
+
+\- Summary
+
+
+
+\###Permissions
+
+\- Read structured decision
+
+\- Read explanation text
+
+
+
+\###Not Allowed To
+
+\- Modify eligibility
+
+\- Modify coverage
+
+\- Modify recommendation
+
+\- Modify explanation
+
+
+
+\###Risk Level
+
+Low
 

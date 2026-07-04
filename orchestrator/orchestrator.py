@@ -1,3 +1,4 @@
+from agents.evaluation_agent import evaluate_explanation
 from agents.explanation_agent import explain_decision
 from agents.eligibility_agent import check_eligibility
 from agents.coverage_agent import check_coverage
@@ -32,7 +33,8 @@ def process_pharmacy_request(member_id, date_of_service, drug_name):
         "Eligibility Agent",
         "Coverage Agent",
         "Recommendation Agent",
-        "Explanation Agent"
+        "Explanation Agent",
+        "Evaluation Agent"
     ]
 
     print("\nExecution Plan:")
@@ -102,6 +104,18 @@ def process_pharmacy_request(member_id, date_of_service, drug_name):
     print(explanation["explanation"])
 
     # --------------------------------------------------
+    # Execute Evaluation Agent
+    # --------------------------------------------------
+    print("\nExecuting Evaluation Agent...")
+
+    evaluation = evaluate_explanation(
+        explanation_data,
+        explanation["explanation"]
+    )
+
+    print(evaluation)
+
+    # --------------------------------------------------
     # Final Orchestrated Response
     # --------------------------------------------------
     final_response = {
@@ -111,7 +125,8 @@ def process_pharmacy_request(member_id, date_of_service, drug_name):
         "eligibility": eligibility,
         "coverage": coverage,
         "recommendation": recommendation,
-        "explanation": explanation["explanation"]
+        "explanation": explanation["explanation"],
+        "evaluation": evaluation
     }
 
     return final_response
