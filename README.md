@@ -2037,7 +2037,7 @@ Evaluation Agent
   ▼
 Final Response
 
-![Complete Workflow](screenshots/complete_workflow.png)
+![Complete Workflow](screenshots/complete_workflow.jpg)
 
 ```
 ---
