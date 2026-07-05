@@ -5,7 +5,7 @@ from agents.coverage_agent import check_coverage
 from agents.recommendation_agent import get_recommendation
 
 
-def process_pharmacy_request(member_id, date_of_service, drug_name):
+def process_pharmacy_request(member_id, date_of_service, drug_name, verbose=False):
     """
     Orchestrates the pharmacy benefit verification process.
 
@@ -16,15 +16,17 @@ def process_pharmacy_request(member_id, date_of_service, drug_name):
     4. Return one structured response
     """
 
-    print("=" * 60)
-    print("PharmaAssist AI - Orchestrator")
-    print("=" * 60)
+    if verbose:
+        print("=" * 60)
+        print("PharmaAssist AI - Orchestrator")
+        print("=" * 60)
 
     # --------------------------------------------------
     # Goal
     # --------------------------------------------------
-    print("\nGoal:")
-    print(f"Determine whether Member {member_id} can receive '{drug_name}'.")
+    if verbose:
+        print("\nGoal:")
+        print(f"Determine whether Member {member_id} can receive '{drug_name}'.")
 
     # --------------------------------------------------
     # Execution Plan
@@ -37,27 +39,31 @@ def process_pharmacy_request(member_id, date_of_service, drug_name):
         "Evaluation Agent"
     ]
 
-    print("\nExecution Plan:")
-    for step in execution_plan:
-        print(f"  → {step}")
+    if verbose:
+        print("\nExecution Plan:")
+        for step in execution_plan:
+            print(f"  → {step}")
 
     # --------------------------------------------------
     # Execute Eligibility Agent
     # --------------------------------------------------
-    print("\nExecuting Eligibility Agent...")
+    if verbose:
+        print("\nExecuting Eligibility Agent...")
 
     eligibility = check_eligibility(
         member_id=member_id,
         date_of_service=date_of_service
     )
 
-    print(eligibility)
+    if verbose:
+        print(eligibility)
 
     if not eligibility["eligible"]:
 
-        print("\nOrchestrator Decision:")
-        print("Member is NOT eligible.")
-        print("Stopping further agent execution.")
+        if verbose:
+            print("\nOrchestrator Decision:")
+            print("Member is NOT eligible.")
+            print("Stopping further agent execution.")
 
         return {
             "orchestrator_status": "STOPPED",
@@ -67,16 +73,19 @@ def process_pharmacy_request(member_id, date_of_service, drug_name):
     # --------------------------------------------------
     # Execute Coverage Agent
     # --------------------------------------------------
-    print("\nExecuting Coverage Agent...")
+    if verbose:
+        print("\nExecuting Coverage Agent...")
 
     coverage = check_coverage(drug_name)
 
-    print(coverage)
+    if verbose:
+        print(coverage)
 
     # --------------------------------------------------
     # Execute Recommendation Agent
     # --------------------------------------------------
-    print("\nExecuting Recommendation Agent...")
+    if verbose:
+        print("\nExecuting Recommendation Agent...")
 
     recommendation = get_recommendation(
         eligible=eligibility["eligible"],
@@ -84,12 +93,14 @@ def process_pharmacy_request(member_id, date_of_service, drug_name):
         prior_authorization=coverage["prior_authorization"]
     )
 
-    print(recommendation)
+    if verbose:
+        print(recommendation)
 
     # --------------------------------------------------
     # Execute Explanation Agent
     # --------------------------------------------------
-    print("\nExecuting Explanation Agent...")
+    if verbose:
+        print("\nExecuting Explanation Agent...")
 
     explanation_data = {
         "eligible": eligibility["eligible"],
@@ -101,19 +112,22 @@ def process_pharmacy_request(member_id, date_of_service, drug_name):
 
     explanation = explain_decision(explanation_data)
 
-    print(explanation["explanation"])
+    if verbose:
+        print(explanation["explanation"])
 
     # --------------------------------------------------
     # Execute Evaluation Agent
     # --------------------------------------------------
-    print("\nExecuting Evaluation Agent...")
+    if verbose:
+        print("\nExecuting Evaluation Agent...")
 
     evaluation = evaluate_explanation(
         explanation_data,
         explanation["explanation"]
     )
 
-    print(evaluation)
+    if verbose:
+        print(evaluation)
 
     # --------------------------------------------------
     # Final Orchestrated Response
@@ -137,7 +151,8 @@ if __name__ == "__main__":
     result = process_pharmacy_request(
         member_id=1001,
         date_of_service="2026-05-01",
-        drug_name="Ozempic"
+        drug_name="Ozempic",
+        verbose=True
     )
 
     print("\nFinal Orchestrator Response")
