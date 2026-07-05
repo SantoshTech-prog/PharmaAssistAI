@@ -2462,17 +2462,20 @@ Rather than replacing deterministic software with AI, PharmaAssist AI shows how 
 
 The architecture presented in this project provides a strong foundation for extending the system with additional agents, enterprise integrations, and production-ready capabilities, demonstrating how modern AI engineering principles can be applied to solve real-world business problems.
 
-# 👨‍💻 About the Author
+    # 👤 About the Author
 
-Hi, I'm **Santosh Kumar**, an IT professional with over **14 years of experience** in software quality assurance, product ownership, application support, and digital transformation. Throughout my career, I have worked on enterprise-scale solutions across the healthcare, aviation, and information technology domains, with a strong focus on delivering reliable, user-centric software.
+    Hi, I'm **Santosh Kumar**, an IT professional with over **14 years of experience** in software quality assurance, product ownership, application support, and digital transformation. Throughout my career, I have worked on enterprise-scale solutions across the healthcare, aviation, and information technology domains, with a strong focus on delivering reliable, user-centric software.
 
 As AI continues to reshape software development, I have been actively expanding my expertise in **AI Engineering**, **Large Language Models (LLMs)**, **Multi-Agent Systems**, **Specification-Driven Development (SDD)**, and **Context Engineering**. My goal is to build AI-powered applications that combine the reliability of traditional software engineering with the capabilities of modern generative AI.
-PharmaAssist AI was developed as part of the **Kaggle AI Agents Intensive Capstone** to demonstrate how modern AI engineering principles can be applied to a realistic healthcare workflow. Rather than relying solely on an LLM, the project showcases how deterministic software, specialized AI agents, orchestration, and evaluation can work together to build reliable, explainable, and maintainable AI systems.
+
+**PharmaAssist AI** was developed as part of the **Kaggle AI Agents Intensive Capstone** to demonstrate how modern AI engineering principles can be applied to a realistic healthcare workflow. Rather than relying solely on an LLM, the project showcases how deterministic software, specialized AI agents, orchestration, and evaluation can work together to build reliable, explainable, and maintainable AI systems.
+
 This project reflects my belief that the future of AI lies not in replacing software engineering, but in combining disciplined engineering practices with intelligent systems to solve real-world business problems.
-## 📬 Connect With Me
-I welcome feedback, discussions, and collaboration on AI Engineering, Multi-Agent Systems, Software Architecture, and Healthcare Technology.
+
+     ## 📬 Connect with Me
+
 - **GitHub:** https://github.com/SantoshTech-prog
 - **LinkedIn:** https://www.linkedin.com/in/santoshkumarkeerthi/
 - **Email:** sankumkee@gmail.com
 
-> *"Great AI systems are not built by prompts alone—they are engineered through thoughtful architecture, clear specifications, deterministic software, and responsible use of AI."*
+    > "Great AI systems are not built by prompts alone—they are engineered through thoughtful architecture, clear specifications, deterministic software, and responsible use of AI."
